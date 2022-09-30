@@ -1,0 +1,119 @@
+.header-container{
+height:7rem;
+width: 100%;
+background-color: black;
+display: flex;
+align-items: center;
+position: relative;
+box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+
+}
+
+.web-name{
+    color: white;
+    font-size: xxx-large;
+}
+
+
+.name-search-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+}
+
+.search-icon{
+    color: white;
+    margin-right: 0.5rem;
+    height: 25px;
+    width: 25px;
+}
+
+.search-input{
+    height: 3.5em;
+    width: 20em;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+
+.cart-sign-container{
+display: flex;
+width: 40%;
+justify-content: flex-end;
+align-items: center;
+margin-left: auto;
+}
+.cart-sign-container ul{
+    display: flex;
+}
+
+.cart-sign-container li{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+
+.flex-child{
+    margin: 1rem 1.5rem 1rem 0.2rem;
+}
+
+.hamburger{
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: #283b8b;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.hamburger:hover{
+    background-color: #2642af;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .cart-sign-container ul {
+       position: absolute;
+       top:110px;
+       left:0%;
+       flex-direction: column;
+       width: 100%;
+       height: calc(100vh - 77px);
+       background-color: white;
+       border-top: 1px solid black;
+       display: none;
+      }
+
+      .cart-sign-container.expanded ul {
+        display:block;
+      }
+
+      .cart-sign-container li{
+        color:black;
+        width: 100%;
+      }
+      .cart-sign-container li:hover{
+        background-color: #eee;
+      }
+
+      .web-name{
+        display:none
+      }
+  }
