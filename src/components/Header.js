@@ -40,13 +40,7 @@ const Header = () => {
             />
           </svg>
         </button>
-        <div
-          className={
-            isNavExpanded
-              ? "cart-sign-container expanded"
-              : "cart-sign-container"
-          }
-        >
+        <div className={isNavExpanded ? "navigation expanded" : "navigation"}>
           <ul>
             <li>
               {" "}
