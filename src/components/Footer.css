@@ -1,0 +1,32 @@
+.footer-container{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: black;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-text{
+    color: white;
+    margin: 20px;
+    
+}
+
+.contact-container{
+    margin-top: 0px;
+
+}
+
+.contact-container ul{
+    margin-top: 10px;
+}
+.contact-container ul li{
+    list-style-type: none;
+    font-size: small;
+}
+
+.copyright{
+
+}
