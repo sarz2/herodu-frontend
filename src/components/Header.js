@@ -2,6 +2,7 @@ import "./Header.css";
 import { BsSearch, BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -10,7 +11,10 @@ const Header = () => {
     <>
       <div className="header-container">
         <div className="name-search-container">
-          <h1 className="web-name">Herodu</h1>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            {" "}
+            <h1 className="web-name">Herodu</h1>
+          </Link>
           <div className="search-container">
             <BsSearch className="search-icon" />
             <input

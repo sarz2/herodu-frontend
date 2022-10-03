@@ -1,11 +1,13 @@
 .footer-container{
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     background-color: black;
     height: 6rem;
     display: flex;
     justify-content: space-between;
+    left: 0;
+    right: 0;
 }
 
 .footer-text{
