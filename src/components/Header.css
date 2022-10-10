@@ -63,6 +63,9 @@ margin-left: auto;
 
 .flex-child{
     margin: 1rem 1.5rem 1rem 0.2rem;
+    text-decoration: none;
+    color:white;
+
 }
 
 .hamburger{
@@ -71,7 +74,7 @@ margin-left: auto;
     width: 40px;
     padding: 0.5rem;
     border-radius: 50%;
-    background-color: #283b8b;
+    background-color: rgb(180, 176, 176);
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     position: absolute;
@@ -82,7 +85,7 @@ margin-left: auto;
 }
 
 .hamburger:hover{
-    background-color: #2642af;
+    background-color: rgb(131, 131, 131);
 }
 
 @media screen and (max-width: 768px) {
@@ -132,5 +135,9 @@ margin-left: auto;
       .search-input{
         height: 3em;
         width: 19em;
+      }
+
+      .flex-child{
+        color:black;
       }
   }

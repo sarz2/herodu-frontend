@@ -3,6 +3,7 @@ import { BsSearch, BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 
 const Header = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -49,12 +50,16 @@ const Header = () => {
             <li>
               {" "}
               <FaShoppingCart style={{ color: "white" }} />
-              <h3 className="flex-child">Cart</h3>
+              <Nav.Link href="/cart" className="flex-child">
+                Cart
+              </Nav.Link>
             </li>
             <li>
               {" "}
               <BsFillPersonFill style={{ color: "white" }} />
-              <h3 className="flex-child">Sign in</h3>
+              <Nav.Link href="/login" className="flex-child">
+                Sign in
+              </Nav.Link>
             </li>
           </ul>
         </div>
