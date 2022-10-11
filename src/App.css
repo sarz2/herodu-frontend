@@ -4,11 +4,14 @@
   box-sizing: border-box;
 }
 
-html,body{
-  height: 100%;
+
+
+main{
+  min-height: 80vh;
 }
 
 .holder{
   min-height: 100%;
   position: relative;
+
 }

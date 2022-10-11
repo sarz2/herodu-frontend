@@ -1,6 +1,6 @@
 .product-image{
-    height: 13rem;
+    height: 300px;
+    max-width: 300px;
     width: auto;
-    margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
