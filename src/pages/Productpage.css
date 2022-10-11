@@ -12,10 +12,8 @@
 
 
 .product-img{
-    width: 100%;
-    height: auto;
-    max-width: 350px;
-    margin: 0.5rem;
+    height: 40rem;
+    width:50rem;
 }
 
 .one-product-container p{
@@ -32,7 +30,7 @@
 
 .buy-box{
     background-color: rgb(219, 217, 217);
-    width: 10rem;
+    width: 100%;
     height: 15rem;
     display: flex;
     flex-direction: column;
@@ -54,7 +52,7 @@
  cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1045px) {
     .description-box{
         width: 100%;
     }
