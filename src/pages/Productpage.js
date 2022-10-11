@@ -1,15 +1,24 @@
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "./Productpage.css";
-import products from "../product";
 import Rating from "../components/Rating";
 import { ListGroup, Image, Card, Row, Col, Button } from "react-bootstrap";
+import axios from "axios";
 
 const ProductPage = () => {
+  const [product, setProduct] = useState({});
   const id = useParams();
 
-  const product = products.find((x) => x._id == id.id);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id.id}`);
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, []);
 
   return (
     <>
