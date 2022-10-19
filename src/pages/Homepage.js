@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Col, Row } from "react-bootstrap";
+
+import { listProducts } from "../actions/productActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import Product from "../components/Product";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./Homepage.css";
-import { listProducts } from "../actions/productActions";
-import Product from "../components/Product";
-import { Col, Row } from "react-bootstrap";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -22,9 +25,9 @@ const HomePage = () => {
       <Header />
       <h1>Latest Products</h1>
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
-        <h3>{error}</h3>
+        <Message variant="danger">{error}</Message>
       ) : (
         <Row className="homepage-container">
           {" "}
