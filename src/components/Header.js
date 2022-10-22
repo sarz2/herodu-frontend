@@ -1,12 +1,23 @@
 import "./Header.css";
 import { BsSearch, BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Nav } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
+import { logout } from "../actions/userActions";
 
 const Header = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logOutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <>
@@ -55,11 +66,22 @@ const Header = () => {
               </Nav.Link>
             </li>
             <li>
-              {" "}
-              <BsFillPersonFill style={{ color: "white" }} />
-              <Nav.Link href="/login" className="flex-child">
-                Sign in
-              </Nav.Link>
+              {userInfo ? (
+                <NavDropdown title={userInfo.user.name} id="username">
+                  <Link to="/profile">
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </Link>
+                  <NavDropdown.Item onClick={logOutHandler}></NavDropdown.Item>
+                  Log out
+                </NavDropdown>
+              ) : (
+                <>
+                  <BsFillPersonFill style={{ color: "white" }} />
+                  <Nav.Link href="/login" className="flex-child">
+                    Sign in
+                  </Nav.Link>
+                </>
+              )}
             </li>
           </ul>
         </div>
