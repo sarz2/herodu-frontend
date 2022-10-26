@@ -28,7 +28,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [item],
         };
       } else {
-        //if the user has more thing in their cart, return a new array with all previous products and add the new item
+        //if the user has more things in their cart, return a new array with all previous products and add the new item
         return {
           ...state,
           cartItems: [...state.cartItems, item],
