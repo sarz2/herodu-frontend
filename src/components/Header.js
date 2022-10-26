@@ -21,72 +21,71 @@ const Header = () => {
 
   return (
     <>
-      <div className="header-container">
-        <div className="name-search-container">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container-fluid">
           <Link to={"/"} style={{ textDecoration: "none" }}>
             {" "}
             <h1 className="web-name">Herodu</h1>
           </Link>
-          <div className="search-container">
-            <BsSearch className="search-icon" />
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search products..."
-            />
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>{" "}
+          <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav me-auto">
+              <li className="nav-item">
+                <Link to={"/"} className="nav-link active">
+                  Home
+                  <span className="visually-hidden">(current)</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Nav.Link href="/cart" className="nav-link active">
+                  <FaShoppingCart style={{ color: "white" }} />
+                  Cart
+                </Nav.Link>
+              </li>
+
+              <li className="nav-item dropdown">
+                {userInfo ? (
+                  <NavDropdown title={userInfo.user.name} id="username">
+                    <Link to="/profile">
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </Link>
+                    <NavDropdown.Item onClick={logOutHandler}>
+                      Log out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <>
+                    <Nav.Link href="/login" className="nav-link">
+                      Sign in
+                      <BsFillPersonFill style={{ color: "white" }} />
+                    </Nav.Link>
+                  </>
+                )}
+              </li>
+            </ul>
+            <form className="d-flex">
+              <input
+                className="form-control me-sm-2"
+                type="text"
+                placeholder="Search"
+              />
+              <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+                Search
+              </button>
+            </form>
           </div>
         </div>
-        <button
-          className="hamburger"
-          onClick={() => {
-            setIsNavExpanded(!isNavExpanded);
-          }}
-        >
-          {/* icon from heroicons.com */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="white"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-        <div className={isNavExpanded ? "navigation expanded" : "navigation"}>
-          <ul>
-            <li>
-              {" "}
-              <FaShoppingCart style={{ color: "white" }} />
-              <Nav.Link href="/cart" className="flex-child">
-                Cart
-              </Nav.Link>
-            </li>
-            <li>
-              {userInfo ? (
-                <NavDropdown title={userInfo.user.name} id="username">
-                  <Link to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                  </Link>
-                  <NavDropdown.Item onClick={logOutHandler}>
-                    Log out
-                  </NavDropdown.Item>
-                </NavDropdown>
-              ) : (
-                <>
-                  <BsFillPersonFill style={{ color: "white" }} />
-                  <Nav.Link href="/login" className="flex-child">
-                    Sign in
-                  </Nav.Link>
-                </>
-              )}
-            </li>
-          </ul>
-        </div>
-      </div>
+      </nav>
     </>
   );
 };

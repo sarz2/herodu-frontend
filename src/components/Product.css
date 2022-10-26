@@ -4,3 +4,7 @@
     width: auto;
     border-radius: 5px;
 }
+
+.border.border-primary{
+    border: 1px solid black;
+}
