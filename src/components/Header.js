@@ -1,15 +1,12 @@
 import "./Header.css";
-import { BsSearch, BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Nav, NavDropdown } from "react-bootstrap";
 import { logout } from "../actions/userActions";
 
 const Header = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
-
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -56,9 +53,9 @@ const Header = () => {
               <li className="nav-item dropdown">
                 {userInfo ? (
                   <NavDropdown title={userInfo.user.name} id="username">
-                    <Link to="/profile">
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
-                    </Link>
+                    <NavDropdown.Item as={Link} to="/profile">
+                      Profile
+                    </NavDropdown.Item>
                     <NavDropdown.Item onClick={logOutHandler}>
                       Log out
                     </NavDropdown.Item>
@@ -66,12 +63,27 @@ const Header = () => {
                 ) : (
                   <>
                     <Nav.Link href="/login" className="nav-link">
-                      Sign in
                       <BsFillPersonFill style={{ color: "white" }} />
+                      Sign in
                     </Nav.Link>
                   </>
                 )}
               </li>
+              {userInfo && userInfo.user.isAdmin && (
+                <li>
+                  <NavDropdown title="Admin" id="adminmenu">
+                    <NavDropdown.Item as={Link} to="/admin/userlist">
+                      Users
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/admin/productlist">
+                      Products
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/admin/orderlist">
+                      Orders
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </li>
+              )}
             </ul>
             <form className="d-flex">
               <input
