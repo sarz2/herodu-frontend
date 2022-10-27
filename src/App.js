@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
+import UserListPage from "./pages/UserListPage.js";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/cart/:id" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/admin/userlist" element={<UserListPage />} />
       </Routes>
     </Router>
   );
