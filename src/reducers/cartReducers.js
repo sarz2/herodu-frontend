@@ -6,14 +6,11 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       const item = action.payload;
 
       //check to see if the user already has the selected item in their cart
-      const itemExists =
-        state.cartItems !== null
-          ? state.cartItems.find(
-              (cartItem) => cartItem.product === item.product
-            )
-          : null;
+      const itemExists = state.cartItems.find(
+        (cartItem) => cartItem.product === item.product
+      );
 
-      if (itemExists !== null) {
+      if (itemExists) {
         //if the product exists then map through the array and replace the item with the new one that the user chose
         return {
           ...state,
@@ -21,19 +18,21 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             i.product === itemExists.product ? item : i
           ),
         };
-      } else if (state.cartItems === null) {
-        //if the user has nothing in the cart then add the item that they chose
-        return {
-          ...state,
-          cartItems: [item],
-        };
       } else {
-        //if the user has more things in their cart, return a new array with all previous products and add the new item
+        //if the item is not already in the cart, then return the state with the new item
         return {
           ...state,
           cartItems: [...state.cartItems, item],
         };
       }
+
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.product !== action.payload
+        ),
+      };
     default:
       return state;
   }
