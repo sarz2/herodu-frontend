@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import FormContainer from "../components/FormContainer";
 import { signup } from "../actions/userActions";
 
-const SignupPage = ({ location }) => {
+const SignupPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
