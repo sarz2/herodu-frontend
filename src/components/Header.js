@@ -2,8 +2,9 @@ import "./Header.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Nav, NavDropdown } from "react-bootstrap";
+import { NavLink, Link } from "react-router-dom";
+import { Nav, NavDropdown, Navbar, Container } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 
 const Header = () => {
@@ -18,24 +19,18 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div className="container-fluid">
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            {" "}
-            <h1 className="web-name">Herodu</h1>
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>{" "}
-          <div className="collapse navbar-collapse" id="navbarColor01">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        className="navbar navbar-dark bg-primary"
+      >
+        <Container variant="light">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              {" "}
+              <h1 className="web-name">Herodu</h1>
+            </Link>
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <Link to={"/"} className="nav-link active">
@@ -49,7 +44,6 @@ const Header = () => {
                   Cart
                 </Nav.Link>
               </li>
-
               <li className="nav-item dropdown">
                 {userInfo ? (
                   <NavDropdown title={userInfo.user.name} id="username">
@@ -95,9 +89,9 @@ const Header = () => {
                 Search
               </button>
             </form>
-          </div>
-        </div>
-      </nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 };
