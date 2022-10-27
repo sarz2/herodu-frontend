@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Form, Button, Row, Col, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { listOfUsers } from "../actions/userActions";
+import { listOfUsers, deleteUser } from "../actions/userActions";
 import { FcCheckmark } from "react-icons/fc";
 import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
@@ -20,16 +20,21 @@ const UserListPage = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success } = userDelete;
+
   useEffect(() => {
     if (userInfo && userInfo.user.isAdmin) {
       dispatch(listOfUsers());
     } else {
       navigate("/login");
     }
-  }, [dispatch]);
+  }, [dispatch, userInfo, success, navigate]);
 
-  const deleteUser = () => {
-    console.log("delete");
+  const deleteUserHandler = (id) => {
+    if (window.confirm("Are you sure?")) {
+      dispatch(deleteUser(id));
+    }
   };
   return (
     <>
@@ -67,7 +72,7 @@ const UserListPage = () => {
                     )}
                   </td>
                   <td>
-                    <LinkContainer to={`/user/${user._id}/edit`}>
+                    <LinkContainer to={`/admin/user/${user._id}/edit`}>
                       <Button variant="light" className="btn-sm">
                         <FaEdit />
                       </Button>
@@ -75,7 +80,7 @@ const UserListPage = () => {
                     <Button
                       variant="danger"
                       className="btn-sm"
-                      onClick={() => deleteUser(user._id)}
+                      onClick={() => deleteUserHandler(user._id)}
                     >
                       <FaTrash />
                     </Button>
