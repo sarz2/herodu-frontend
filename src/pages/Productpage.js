@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ListGroup,
@@ -17,6 +17,7 @@ import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { listProductDetails } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
 import "./Productpage.css";
 
 const ProductPage = () => {
@@ -24,7 +25,6 @@ const ProductPage = () => {
 
   const dispatch = useDispatch();
   const id = useParams();
-  const navigate = useNavigate();
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -32,6 +32,10 @@ const ProductPage = () => {
   useEffect(() => {
     dispatch(listProductDetails(id.id));
   }, [dispatch, id.id]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(id.id, quantity));
+  };
 
   return (
     <>
@@ -110,7 +114,7 @@ const ProductPage = () => {
                   )}
                   <ListGroup.Item>
                     <Button
-                      onClick={() => navigate(`/cart/${id.id}?qty=${quantity}`)}
+                      onClick={addToCartHandler}
                       className="btn-block"
                       type="button"
                       disabled={product.countInStock === 0}

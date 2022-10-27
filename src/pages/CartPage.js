@@ -28,15 +28,13 @@ const CartPage = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  useEffect(() => {
-    if (productId.id != undefined) {
-      dispatch(addToCart(productId.id, qty));
-    }
-  }, [dispatch, productId, qty]);
-
   const removeFromCartHandler = (id) => {
     console.log("remove");
   };
+
+  // const totalNumberOfItems = cartItems.reduce(
+  //   (acc, item) => acc + item.quantity
+  // );
 
   return (
     <>
@@ -92,7 +90,13 @@ const CartPage = () => {
             </ListGroup>
           )}
         </Col>
-        <Col md={4}></Col>
+        {/* <Col md={4}>
+          <Card>
+            <ListGroup.Item>
+              <h2>Subtotal ({totalNumberOfItems}) items</h2>
+            </ListGroup.Item>
+          </Card>
+        </Col> */}
       </Row>
       <Footer />
     </>
