@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useSearchParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Row,
   Col,
@@ -15,26 +15,22 @@ import { FaTrash } from "react-icons/fa";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Message from "../components/Message";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 const CartPage = () => {
-  const [searchParams] = useSearchParams();
-  const productId = useParams();
-
-  const qty = searchParams.get("qty");
-
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   const removeFromCartHandler = (id) => {
-    console.log("remove");
+    dispatch(removeFromCart(id));
   };
 
-  // const totalNumberOfItems = cartItems.reduce(
-  //   (acc, item) => acc + item.quantity
-  // );
+  const totalNumberOfItems = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   return (
     <>
@@ -57,7 +53,7 @@ const CartPage = () => {
                     <Col md={3}>
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
                     </Col>
-                    <Col md={2}>{item.price}</Col>
+                    <Col md={2}>{item.price}kr</Col>
                     <Col md={2}>
                       <Form.Control
                         as="select"
@@ -90,13 +86,13 @@ const CartPage = () => {
             </ListGroup>
           )}
         </Col>
-        {/* <Col md={4}>
+        <Col md={4}>
           <Card>
             <ListGroup.Item>
               <h2>Subtotal ({totalNumberOfItems}) items</h2>
             </ListGroup.Item>
           </Card>
-        </Col> */}
+        </Col>
       </Row>
       <Footer />
     </>
