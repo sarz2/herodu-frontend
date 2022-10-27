@@ -5,6 +5,7 @@ import {
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
+  USER_LIST_RESET,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -56,6 +57,7 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_LIST_RESET });
 };
 
 export const signup = (name, email, password) => async (dispatch) => {
@@ -183,19 +185,25 @@ export const listOfUsers = () => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
+    if (!userInfo) {
+      dispatch({
+        type: USER_LIST_FAIL,
+        payload: "Not Authorized as Admin",
+      });
+    } else {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.user.token}`,
+        },
+      };
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.user.token}`,
-      },
-    };
+      const { data } = await axios.get(`/api/users`, config);
 
-    const { data } = await axios.get(`/api/users`, config);
-
-    dispatch({
-      type: USER_LIST_SUCCESS,
-      payload: data,
-    });
+      dispatch({
+        type: USER_LIST_SUCCESS,
+        payload: data,
+      });
+    }
   } catch (error) {
     dispatch({
       type: USER_LIST_FAIL,

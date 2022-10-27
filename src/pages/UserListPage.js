@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Form, Button, Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,13 +13,19 @@ import Footer from "../components/Footer";
 
 const UserListPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList;
-  console.log(userList);
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   useEffect(() => {
-    dispatch(listOfUsers());
-    console.log(users);
+    if (userInfo && userInfo.user.isAdmin) {
+      dispatch(listOfUsers());
+    } else {
+      navigate("/login");
+    }
   }, [dispatch]);
 
   const deleteUser = () => {
@@ -59,18 +66,20 @@ const UserListPage = () => {
                       <FaTimes style={{ color: "red" }} />
                     )}
                   </td>
-                  <LinkContainer to={`/user/${user._id}/edit`}>
-                    <Button variant="light" className="btn-sm">
-                      <FaEdit />
+                  <td>
+                    <LinkContainer to={`/user/${user._id}/edit`}>
+                      <Button variant="light" className="btn-sm">
+                        <FaEdit />
+                      </Button>
+                    </LinkContainer>
+                    <Button
+                      variant="danger"
+                      className="btn-sm"
+                      onClick={() => deleteUser(user._id)}
+                    >
+                      <FaTrash />
                     </Button>
-                  </LinkContainer>
-                  <Button
-                    variant="danger"
-                    className="btn-sm"
-                    onClick={() => deleteUser(user._id)}
-                  >
-                    <FaTrash />
-                  </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
