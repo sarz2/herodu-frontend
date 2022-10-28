@@ -8,8 +8,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   productListReducer,
   productDetailsReducer,
-} from "./reducers/productReducers";
-import { cartReducer } from "./reducers/cartReducers";
+} from "./redux/reducers/productReducers";
+import { cartReducer } from "./redux/reducers/cartReducers";
 import {
   userLoginReducer,
   userSignupReducer,
@@ -18,7 +18,7 @@ import {
   userListReducer,
   userDeleteReducer,
   userUpdateReducer,
-} from "./reducers/userReducers";
+} from "./redux/reducers/userReducers";
 
 const reducer = combineReducers({
   productList: productListReducer,
