@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { listOfUsers, deleteUser } from "../actions/userActions";
+import { listOfUsers, deleteUser } from "../redux/actions/userActions";
 import { FcCheckmark } from "react-icons/fc";
 import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
@@ -79,6 +79,7 @@ const UserListPage = () => {
                     </LinkContainer>
                     <Button
                       variant="danger"
+                      style={{ backgroundColor: "red" }}
                       className="btn-sm"
                       onClick={() => deleteUserHandler(user._id)}
                     >

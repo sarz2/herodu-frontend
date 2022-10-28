@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FormContainer from "../components/FormContainer";
-import { signup } from "../actions/userActions";
+import { signup } from "../redux/actions/userActions";
 
 const SignupPage = () => {
   const [name, setName] = useState("");

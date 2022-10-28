@@ -15,7 +15,7 @@ import { FaTrash } from "react-icons/fa";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Message from "../components/Message";
-import { addToCart, removeFromCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
 const CartPage = () => {
   const dispatch = useDispatch();

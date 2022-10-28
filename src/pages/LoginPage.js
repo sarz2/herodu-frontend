@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FormContainer from "../components/FormContainer";
-import { login } from "../actions/userActions";
+import { login } from "../redux/actions/userActions";
 
 const LoginPage = ({ location }) => {
   const [email, setEmail] = useState("");

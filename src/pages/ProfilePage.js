@@ -6,8 +6,11 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
-import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import {
+  getUserDetails,
+  updateUserProfile,
+} from "../redux/actions/userActions";
+import { USER_UPDATE_PROFILE_RESET } from "../redux/constants/userConstants";
 
 const ProfilePage = ({}) => {
   const [name, setName] = useState("");

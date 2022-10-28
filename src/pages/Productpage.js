@@ -16,8 +16,8 @@ import Header from "../components/Header";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listProductDetails } from "../actions/productActions";
-import { addToCart } from "../actions/cartActions";
+import { listProductDetails } from "../redux/actions/productActions";
+import { addToCart } from "../redux/actions/cartActions";
 import "./Productpage.css";
 
 const ProductPage = () => {
