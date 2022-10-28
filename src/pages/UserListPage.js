@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-import { Button, Table } from "react-bootstrap";
+import { Button, Modal, Table, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { listOfUsers, deleteUser } from "../redux/actions/userActions";
+import { listOfUsers, deleteUser, signup } from "../redux/actions/userActions";
 import { FcCheckmark } from "react-icons/fc";
 import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
@@ -12,8 +12,16 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const UserListPage = () => {
+  const [isShow, invokeModal] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList;
 
@@ -22,6 +30,9 @@ const UserListPage = () => {
 
   const userDelete = useSelector((state) => state.userDelete);
   const { success } = userDelete;
+
+  const userSignup = useSelector((state) => state.userSignup);
+  const { error: errorSignup } = userSignup;
 
   useEffect(() => {
     if (userInfo && userInfo.user.isAdmin) {
@@ -35,6 +46,18 @@ const UserListPage = () => {
     if (window.confirm("Are you sure?")) {
       dispatch(deleteUser(id));
     }
+  };
+
+  const createNewUserHandler = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("Password do not match");
+    } else {
+      dispatch(signup(name, email, password));
+    }
+  };
+  const initModal = () => {
+    return invokeModal(!isShow);
   };
   return (
     <>
@@ -92,6 +115,70 @@ const UserListPage = () => {
           )}
         </Table>
       )}
+      <Button
+        type="button"
+        variant="primary"
+        data-toggle="modal"
+        data-target="#modal"
+        onClick={initModal}
+      >
+        Create New User
+      </Button>
+      <Modal show={isShow}>
+        <Modal.Header closeButton onClick={initModal}>
+          <Modal.Title>Create New User</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {errorSignup && <Message variant="danger">{errorSignup}</Message>}
+          {message && <Message variant="danger">{message}</Message>}
+          <Form onSubmit={createNewUserHandler}>
+            <Form.Group controlId="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="name"
+                placeholder="Enter name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="email">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="confirmPassword">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter password again"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Button type="submit" variant="primary">
+              Create
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={initModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Footer />
     </>
   );
