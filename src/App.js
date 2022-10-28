@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
 import UserListPage from "./pages/UserListPage.js";
+import UserEditPage from "./pages/UserEditPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/cart/:id" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/admin/userlist" element={<UserListPage />} />
+        <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
       </Routes>
     </Router>
   );
