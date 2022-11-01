@@ -62,8 +62,9 @@ Are you tired of endelssly scrolling through the internet searching for a good w
 
 
 ## Documentation
--[Wireframes](https://www.figma.com/file/pEbz0xOVfCItDweQK0TKKL/Wireframe-Herodu?node-id=0%3A1)
--[Användaranalys](https://docs.google.com/forms/d/1oT3_jQ2dVydGMrW-QuHAQ2BuvFysEnh6YSTY9n9wFio/edit#responses)
+- [Wireframes](https://www.figma.com/file/pEbz0xOVfCItDweQK0TKKL/Wireframe-Herodu?node-id=0%3A1)
+- [Användaranalys](https://docs.google.com/forms/d/1oT3_jQ2dVydGMrW-QuHAQ2BuvFysEnh6YSTY9n9wFio/edit#responses)
+- [UX](https://docs.google.com/document/d/1cjwc1nIodN0G51BTffdVfKQokXw5mG_RH2rT1jOLto0/edit)
 
 
 
