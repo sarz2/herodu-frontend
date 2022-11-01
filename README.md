@@ -56,8 +56,12 @@ Are you tired of endelssly scrolling through the internet searching for a good w
 | Page                                                                                                             | Functionality                                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Landing page** <br /> <br /> /                                                                                 | <br /> <br /> Start page, latest products                                                                                                                               |
-| **Login, signup, profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> /cart <br /> /chat <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> show your cart and purchase <br /> place you can see and chat with matches |
-| **Admin** <br /> <br /> /
+| **Login, signup, Profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> show your cart and purchase <br /> 
+        |
+| **Cart, Products** <br /> <br /> /cart <br />  /product/:id <br /> | <br /> <br /> <br /> See your cart <br /> See single product <br /> 
+        |
+| **Admin** <br /> <br /> /admin/userlist <br /> /admin/user/:id/edit <br /> | <br /> <br />See a list of all users and create new user <br /> Edit an existing user <br/>
+
 
 
 
