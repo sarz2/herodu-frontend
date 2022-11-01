@@ -53,15 +53,17 @@ Are you tired of endelssly scrolling through the internet searching for a good w
 
 ## Page and Routes
 
-| Page                                                                                                             | Functionality                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------|
-| **Landing page** <br /> <br /> /                                                                                 | <br /> <br /> Start page, latest products                                                                                                                                                                                                                                          |
-| **Login, signup, Profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> show your cart and purchase <br /> 
-                                                                                                                   |
-| **Cart, Products** <br /> <br /> /cart <br />  /product/:id <br /> | <br /> <br /> <br /> See your cart <br /> See single product <br /> 
-                                                                                                                   |
-| **Admin** <br /> <br /> /admin/userlist <br /> /admin/user/:id/edit <br /> | <br /> <br />See a list of all users and create new user <br /> Edit an existing user <br/>                                                                                     |
+| **Landing Page**<br><br>/                                       | Start page,<br>latest products                                                 |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Login, Signup, profile**<br><br>/login<br>/signup<br>/profile | <br><br>login to your account<br>sign up for a new account<br>see your profile |
+| **Cart, Products**<br><br>/product/:id<br>/cart                 | <br><br>See your cart<br>See single product                                    |
+| **Admin**<br><br>/admin/userlist<br>/admin/user/:id/edit        | <br><br>See a list of all users and create new user<br>Edit an existing user   |
 
+
+
+## Documentation
+-[Wireframes](https://www.figma.com/file/pEbz0xOVfCItDweQK0TKKL/Wireframe-Herodu?node-id=0%3A1)
+-[Användaranalys](https://docs.google.com/forms/d/1oT3_jQ2dVydGMrW-QuHAQ2BuvFysEnh6YSTY9n9wFio/edit#responses)
 
 
 
