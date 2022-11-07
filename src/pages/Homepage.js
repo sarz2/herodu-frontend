@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import Paginate from "../components/Paginate";
 import "./Homepage.css";
 import { useParams } from "react-router-dom";
+import ProductCarousel from "../components/ProductCarousel";
 
 const HomePage = () => {
   const { pageNumber } = useParams() || 1;
@@ -28,6 +29,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
+      {!keyword && (
+        <>
+          <h1>Top Rated Products</h1>
+          <ProductCarousel />
+        </>
+      )}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
