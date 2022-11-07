@@ -19,10 +19,16 @@ function App() {
         <Route path="/signup" exact element={<SignupPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/cart/:id" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/admin/userlist" element={<UserListPage />} />
         <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+        <Route path="/search/:keyword" element={<HomePage />} />
+        <Route path="/page/:pageNumber" exact element={<HomePage />} />
+        <Route
+          path="/search/:keyword/page/:pageNumber"
+          exact
+          element={<HomePage />}
+        />
       </Routes>
     </Router>
   );
