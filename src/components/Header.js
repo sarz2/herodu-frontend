@@ -1,19 +1,39 @@
 import "./Header.css";
+import { useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
-import { Nav, NavDropdown, Navbar, Container } from "react-bootstrap";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import {
+  Nav,
+  NavDropdown,
+  Navbar,
+  Container,
+  Form,
+  Button,
+} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../redux/actions/userActions";
 const Header = () => {
+  const [keyword, setKeyword] = useState("");
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   const logOutHandler = () => {
     dispatch(logout());
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/search/${keyword}`);
+    } else {
+      navigate("/");
+    }
   };
 
   return (
@@ -78,16 +98,18 @@ const Header = () => {
                 </li>
               )}
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-sm-2"
+            <Form onSubmit={submitHandler} className="d-flex">
+              <Form.Control
                 type="text"
+                name="q"
+                onChange={(e) => setKeyword(e.target.value)}
                 placeholder="Search"
-              />
-              <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+                className="mr-sm-2 ml-sm-5"
+              ></Form.Control>
+              <Button type="submit" variant="primary">
                 Search
-              </button>
-            </form>
+              </Button>
+            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
