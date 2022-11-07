@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Herodu-Webbshop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend of a webshop where you can find all your games and gaming-consoles you desire.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [General Information](#general-information)
+- [Getting Started](#getting-started)
+- [Goals](#goals)
+- [Page and Routes](#[page-and-routes])
+- [Example](#example)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
+- [License](#license)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### General Information
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Live site
 
-### `npm test`
+
+### Built with
+
+- [React](https://reactjs.org)
+
+
+
+
+## Getting Started
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the depository
+2. Run ``` npm install ``` in the root folder
+3.Create a .env file in the root of the project:
+Add:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+4. Start the react server with ``` npm start ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Navigate to http://localhost:3000 where the app will run locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Goals
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Are you tired of endelssly scrolling through the internet searching for a good website to buy your games?Well look no more, Herodu webshop is the best place for all your game-related purchases. Here every purchase is saved on your profile and easily acccessable, searching for different categories of product is easily manageable and our latest products are always shown on the front page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Page and Routes
 
-### Code Splitting
+| **Landing Page**<br><br>/                                       | Start page,<br>latest products                                                 |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Login, Signup, profile**<br><br>/login<br>/signup<br>/profile | <br><br>login to your account<br>sign up for a new account<br>see your profile |
+| **Cart, Products**<br><br>/product/:id<br>/cart                 | <br><br>See your cart<br>See single product                                    |
+| **Admin**<br><br>/admin/userlist<br>/admin/user/:id/edit        | <br><br>See a list of all users and create new user<br>Edit an existing user   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Documentation
+- [Wireframes](https://www.figma.com/file/pEbz0xOVfCItDweQK0TKKL/Wireframe-Herodu?node-id=0%3A1)
+- [Användaranalys](https://docs.google.com/forms/d/1oT3_jQ2dVydGMrW-QuHAQ2BuvFysEnh6YSTY9n9wFio/edit#responses)
+- [UX](https://docs.google.com/document/d/1cjwc1nIodN0G51BTffdVfKQokXw5mG_RH2rT1jOLto0/edit)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
