@@ -66,9 +66,8 @@ const ProfilePage = ({}) => {
   return (
     <>
       <Header />
-
       <Row>
-        <Col md={3}>
+        <Col>
           <h2>User Profile</h2>
           {message && <Message variant="danger">{message}</Message>}
           {error && <Message variant="danger">{error}</Message>}
@@ -77,6 +76,7 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
+                style={{ width: "50%", margin: "auto" }}
                 type="name"
                 placeholder="Enter name"
                 value={name ? name : ""}
@@ -86,6 +86,7 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="email">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
+                style={{ width: "50%", margin: "auto" }}
                 type="email"
                 placeholder="Enter email"
                 value={email ? email : ""}
@@ -95,6 +96,7 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                style={{ width: "50%", margin: "auto" }}
                 type="password"
                 placeholder="Enter password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -103,6 +105,7 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="confirmPassword">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
+                style={{ width: "50%", margin: "auto" }}
                 type="password"
                 placeholder="Enter password again"
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -113,9 +116,6 @@ const ProfilePage = ({}) => {
             </Button>
           </Form>
           <Footer />
-        </Col>
-        <Col md={9}>
-          <h2>My Orders</h2>
         </Col>
       </Row>
     </>
