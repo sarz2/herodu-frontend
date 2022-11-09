@@ -1,5 +1,5 @@
 import "./Header.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +22,9 @@ const Header = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   const logOutHandler = () => {
     dispatch(logout());
@@ -60,7 +63,11 @@ const Header = () => {
               <li className="nav-item">
                 <Nav.Link href="/cart" className="nav-link active">
                   <FaShoppingCart style={{ color: "white" }} />
-                  Cart
+                  {cartItems ? (
+                    <span>Cart ({cartItems.length})</span>
+                  ) : (
+                    <p>Cart</p>
+                  )}
                 </Nav.Link>
               </li>
               <li className="nav-item dropdown">
@@ -87,12 +94,6 @@ const Header = () => {
                   <NavDropdown title="Admin" id="adminmenu">
                     <NavDropdown.Item as={Link} to="/admin/userlist">
                       Users
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/admin/productlist">
-                      Products
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/admin/orderlist">
-                      Orders
                     </NavDropdown.Item>
                   </NavDropdown>
                 </li>
