@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-align: center;
+  font-family: 'Kanit', sans-serif;
 }
 
 .width{
   width: 80%;
   margin: auto;
+  padding-bottom: 150px;
 }
 main{
   min-height: 80vh;
@@ -18,4 +19,8 @@ main{
   min-height: 100%;
   position: relative;
 
+}
+
+h1, h2{
+  text-align: center;
 }
