@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Row,
   Col,
@@ -19,6 +19,7 @@ import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -27,10 +28,11 @@ const CartPage = () => {
     dispatch(removeFromCart(id));
   };
 
-  const totalNumberOfItems = cartItems.reduce(
-    (acc, item) => acc + item.quantity,
-    0
-  );
+  const totalNumberOfItems = cartItems.reduce((acc, item) => acc + item.qty, 0);
+
+  const checkoutHandler = () => {
+    navigate("/login?redirect=shipping");
+  };
 
   return (
     <>
@@ -90,6 +92,20 @@ const CartPage = () => {
           <Card>
             <ListGroup.Item>
               <h2>Subtotal ({totalNumberOfItems}) items</h2>
+              {cartItems
+                .reduce((acc, item) => acc + item.qty * item.price, 0)
+                .toFixed(2)}
+              kr
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                className="btn-block"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed to checkout
+              </Button>
             </ListGroup.Item>
           </Card>
         </Col>
