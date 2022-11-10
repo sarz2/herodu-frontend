@@ -28,7 +28,7 @@ const Product = ({ product }) => {
               href={`product/${product._id}`}
               style={{ textDecoration: "none", color: "black" }}
             >
-              <Card.Title as="div">
+              <Card.Title as="h5">
                 <strong>{product.name}</strong>
               </Card.Title>
             </a>
