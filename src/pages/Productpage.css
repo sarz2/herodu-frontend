@@ -6,7 +6,6 @@
     margin: auto;
     justify-content: space-around;
     padding-bottom: 9rem;
-    margin-top: 2rem;
 }
 
 
@@ -14,6 +13,7 @@
 .product-img{
     height: 20rem;
     width:30rem;
+    margin-bottom: 30px;
 }
 
 .one-product-container p{

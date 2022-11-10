@@ -72,11 +72,13 @@ const ProfilePage = ({}) => {
           {message && <Message variant="danger">{message}</Message>}
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
-          <Form onSubmit={submitHandler}>
+          <Form
+            style={{ width: "50%", margin: "auto" }}
+            onSubmit={submitHandler}
+          >
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
-                style={{ width: "50%", margin: "auto" }}
                 type="name"
                 placeholder="Enter name"
                 value={name ? name : ""}
@@ -86,7 +88,6 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="email">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
-                style={{ width: "50%", margin: "auto" }}
                 type="email"
                 placeholder="Enter email"
                 value={email ? email : ""}
@@ -96,7 +97,6 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                style={{ width: "50%", margin: "auto" }}
                 type="password"
                 placeholder="Enter password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -105,7 +105,6 @@ const ProfilePage = ({}) => {
             <Form.Group controlId="confirmPassword">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
-                style={{ width: "50%", margin: "auto" }}
                 type="password"
                 placeholder="Enter password again"
                 onChange={(e) => setConfirmPassword(e.target.value)}

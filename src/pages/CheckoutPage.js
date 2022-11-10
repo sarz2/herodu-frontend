@@ -41,11 +41,13 @@ const CheckoutPage = () => {
           </Link>
           <Col>
             <h1>Pay with invoice</h1>
-            <Form onSubmit={submitHandler}>
+            <Form
+              style={{ width: "50%", margin: "auto" }}
+              onSubmit={submitHandler}
+            >
               <Form.Group controlId="adress">
                 <Form.Label>Adress</Form.Label>
                 <Form.Control
-                  style={{ width: "50%", margin: "auto" }}
                   type="text"
                   placeholder="Enter adress"
                   value={adress}
