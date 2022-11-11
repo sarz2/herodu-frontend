@@ -28,6 +28,7 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
   const id = useParams();
@@ -55,10 +56,11 @@ const ProductPage = () => {
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
     dispatch(listProductDetails(productId));
-  }, [dispatch, productId, successProductReview, rating, cartItems]);
+  }, [dispatch, productId, successProductReview, rating, cartItems, message]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(productId, quantity));
+    setMessage("Added to cart!");
   };
 
   const submitHandler = (e) => {
@@ -106,6 +108,7 @@ const ProductPage = () => {
                 </ListGroup>
               </Col>
               <Col>
+                {message && <Message>{message}</Message>}
                 <Card>
                   <ListGroup variant="flush">
                     <ListGroup.Item>
