@@ -13,27 +13,31 @@ import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" exact element={<HomePage />} />
-        <Route path="/login" exact element={<LoginPage />} />
-        <Route path="/signup" exact element={<SignupPage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/page/product/:id" element={<ProductPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/admin/userlist" element={<UserListPage />} />
-        <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
-        <Route path="/search/:keyword" element={<HomePage />} />
-        <Route path="/page/:pageNumber" exact element={<HomePage />} />
-        <Route
-          path="/search/:keyword/page/:pageNumber"
-          exact
-          element={<HomePage />}
-        />
-      </Routes>
-    </Router>
+    <div className="page-container">
+      <div className="content-wrap">
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/login" exact element={<LoginPage />} />
+            <Route path="/signup" exact element={<SignupPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/page/product/:id" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/admin/userlist" element={<UserListPage />} />
+            <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+            <Route path="/search/:keyword" element={<HomePage />} />
+            <Route path="/page/:pageNumber" exact element={<HomePage />} />
+            <Route
+              path="/search/:keyword/page/:pageNumber"
+              exact
+              element={<HomePage />}
+            />
+          </Routes>
+        </Router>
+      </div>
+    </div>
   );
 }
 

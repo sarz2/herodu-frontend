@@ -9,14 +9,16 @@
   width: 80%;
   margin: auto;
   padding-bottom: 150px;
+  display: flex;
+  justify-content: center;
 }
-main{
-  min-height: 80vh;
+.content-wrap{
+  padding-bottom: 2.5rem;
 
 }
 
-.holder{
-  min-height: 100%;
+.page-container{
+  min-height: 100vh;
   position: relative;
 
 }
