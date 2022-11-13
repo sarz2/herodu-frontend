@@ -1,6 +1,6 @@
 # Herodu-Webbshop
 
-This is the frontend of a webshop where you can find all your games and gaming-consoles you desire.
+This is the frontend of a webshop where you can find all the games desire.
 
 ## Table of Contents
 
@@ -8,15 +8,14 @@ This is the frontend of a webshop where you can find all your games and gaming-c
 - [Getting Started](#getting-started)
 - [Goals](#goals)
 - [Page and Routes](#[page-and-routes])
-- [Example](#example)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
 - [License](#license)
 
 
 ### General Information
 
 ### Live site
+
+[Herodu](https://herodu-app.netlify.app/)
 
 
 ### Built with
@@ -28,28 +27,24 @@ This is the frontend of a webshop where you can find all your games and gaming-c
 
 ## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 1. Clone the depository
 2. Run ``` npm install ``` in the root folder
-3.Create a .env file in the root of the project:
-Add:
 
 
 
-4. Start the react server with ``` npm start ```
+
+3. Start the react server with ``` npm run start ```
 
 
 
-5. Navigate to http://localhost:3000 where the app will run locally
+4. Navigate to http://localhost:3000 where the app will run locally
 
 
 ## Goals
 
-Are you tired of endelssly scrolling through the internet searching for a good website to buy your games?Well look no more, Herodu webshop is the best place for all your game-related purchases. Here every purchase is saved on your profile and easily acccessable, searching for different categories of product is easily manageable and our latest products are always shown on the front page.
+Are you tired of endelssly scrolling through the internet searching for a good website to buy your games? Well look no more, Herodu webshop is the best place for all your game-related purchases.
 
 ## Page and Routes
 
@@ -69,3 +64,6 @@ Are you tired of endelssly scrolling through the internet searching for a good w
 
 
 
+## License
+
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
