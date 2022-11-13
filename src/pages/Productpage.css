@@ -8,6 +8,12 @@
     padding-bottom: 9rem;
 }
 
+.product-description-container{
+    min-height: fit-content;
+    height: 20rem;
+    margin-bottom: 10rem;
+}
+
 
 
 .product-img{

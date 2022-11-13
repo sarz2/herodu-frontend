@@ -26,3 +26,56 @@
 h1, h2{
   text-align: center;
 }
+
+.product-name{
+  color:white;
+  text-decoration: none;
+}
+
+
+
+.go-back-link{
+  margin-left: 20%;
+}
+.cart{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.cart-card{
+  display: flex;
+  flex-flow:wrap;
+}
+
+.btn{
+  border: 1px solid rgb(113, 112, 112);
+  color: black;
+}
+
+.btn:hover{
+  background-color: rgb(211, 210, 210);
+}
+
+@media screen and (max-height:770px){
+  .col-md-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+  }
+
+  .col-md-3{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+  }
+
+  .img-fluid{
+    height: 100px;
+  }
+
+}

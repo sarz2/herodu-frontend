@@ -42,17 +42,25 @@ const CartPage = () => {
             Your cart is empty <Link to="/">Go back</Link>
           </Message>
         ) : (
-          <ListGroup variant="flush">
+          <ListGroup
+            variant="flush"
+            className="bg-primary"
+            style={{ borderRadius: "10px", border: "1px solid black" }}
+          >
             {cartItems.map((item) => (
               <ListGroup.Item key={item.product}>
-                <Row>
+                <Row className="cart">
                   <Col md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    <Link to={`/product/${item.product}`}>
+                      <h3 className="product-name">{item.name}</h3>
+                    </Link>
                   </Col>
-                  <Col md={2}>{item.price}kr</Col>
+                  <Col md={2}>
+                    <h3 className="product-name">{item.price}kr</h3>
+                  </Col>
                   <Col md={2}>
                     <Form.Control
                       as="select"
@@ -72,11 +80,13 @@ const CartPage = () => {
                   </Col>
                   <Col md={2}>
                     <Button
+                      aria-label="remove from button"
                       type="button"
-                      variant="light"
+                      variant="danger"
+                      style={{ border: "1px solid black" }}
                       onClick={() => removeFromCartHandler(item.product)}
                     >
-                      <FaTrash />
+                      <FaTrash style={{ color: "red" }} />
                     </Button>
                   </Col>
                 </Row>
@@ -86,13 +96,22 @@ const CartPage = () => {
         )}
         {cartItems.length !== 0 && (
           <div className="width">
-            <Col md={6} style={{ marginTop: "55px" }}>
-              <Card>
+            <Col md={6}>
+              <Card
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <ListGroup.Item>
                   <h2>
                     Subtotal (
                     {cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
                   </h2>
+                </ListGroup.Item>
+
+                <ListGroup.Item>
                   {cartItems
                     .reduce((acc, item) => acc + item.qty * item.price, 0)
                     .toFixed(2)}
@@ -100,6 +119,7 @@ const CartPage = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Button
+                    aria-label="proceed to checkout"
                     type="button"
                     className="btn-block"
                     disabled={cartItems.length === 0}

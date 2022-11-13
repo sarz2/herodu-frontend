@@ -2,11 +2,12 @@
     position: absolute;
     width: 100%;
     background-color: black;
-    height: 6rem;
+    height: auto;
     display: flex;
     justify-content: space-between;
     left: 0;
     right: 0;
+    bottom: 0;
     z-index: 0;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .contact-container ul{
-    margin-top: 10px;
+    padding-left: 0
 }
 .contact-container ul li{
     list-style-type: none;

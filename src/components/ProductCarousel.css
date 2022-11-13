@@ -3,7 +3,6 @@
   .carousel-caption{
     position: absolute;
     top: 0;
-    border-radius: 10px;
   }
 
   .carousel-caption h2{
@@ -21,6 +20,12 @@
     padding: 30px;
     margin: 40px;
     border-radius: 50%;
+  }
+
+  @media screen and (max-width: 600px){
+    .carousel img {
+      height: 200px;
+    }
   }
 
   .carousel a {
