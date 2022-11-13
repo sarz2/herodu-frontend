@@ -1,9 +1,9 @@
 import "./Header.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Nav,
   NavDropdown,
@@ -12,7 +12,6 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../redux/actions/userActions";
 const Header = () => {
   const [keyword, setKeyword] = useState("");

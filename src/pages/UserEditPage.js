@@ -12,7 +12,7 @@ import { getUserDetails, updateUser } from "../redux/actions/userActions";
 import { USER_UPDATE_RESET } from "../redux/constants/userConstants";
 import { pageTransition, pageVariants } from "../components/motions";
 
-const UserEditPage = ({}) => {
+const UserEditPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);

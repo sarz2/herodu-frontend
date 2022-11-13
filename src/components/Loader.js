@@ -14,7 +14,6 @@ const Loader = () => {
           height: "100px",
         }}
       ></Spinner>
-      <span className="sr-only">Loading...</span>
     </>
   );
 };

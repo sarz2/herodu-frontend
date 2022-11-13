@@ -24,7 +24,7 @@ const LoginPage = ({ location }) => {
     if (userInfo) {
       navigate("/");
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
