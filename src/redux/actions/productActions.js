@@ -24,7 +24,7 @@ export const listProducts =
       dispatch({ type: PRODUCT_LIST_REQUEST });
 
       const { data } = await axios.get(
-        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `https://heroduapp.herokuapp.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
@@ -46,7 +46,9 @@ export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://heroduapp.herokuapp.com/api/products/${id}`
+    );
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -79,7 +81,11 @@ export const createProductReview =
         },
       };
 
-      await axios.post(`/api/products/${productId}/reviews`, review, config);
+      await axios.post(
+        `https://heroduapp.herokuapp.com/api/products/${productId}/reviews`,
+        review,
+        config
+      );
 
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -99,7 +105,9 @@ export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP__REQUEST });
 
-    const { data } = await axios.get(`/api/products/top`);
+    const { data } = await axios.get(
+      `https://heroduapp.herokuapp.com/api/products/top`
+    );
 
     dispatch({
       type: PRODUCT_TOP__SUCCESS,
@@ -120,7 +128,9 @@ export const reduceProducts = (productId, qty) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_REDUCE_REQUEST });
 
-    const { data } = await axios.post(`/api/products/${productId}/${qty}`);
+    const { data } = await axios.post(
+      `https://heroduapp.herokuapp.com/api/products/${productId}/${qty}`
+    );
 
     dispatch({
       type: PRODUCT_REDUCE_SUCCESS,
