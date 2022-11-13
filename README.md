@@ -57,6 +57,7 @@ Are you tired of endelssly scrolling through the internet searching for a good w
 |-----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | **Login, Signup, profile**<br><br>/login<br>/signup<br>/profile | <br><br>login to your account<br>sign up for a new account<br>see your profile |
 | **Cart, Products**<br><br>/product/:id<br>/cart                 | <br><br>See your cart<br>See single product                                    |
+| **Search** <br><br>/search/:keyword                             | <br><br>See all your search results                                            |
 | **Admin**<br><br>/admin/userlist<br>/admin/user/:id/edit        | <br><br>See a list of all users and create new user<br>Edit an existing user   |
 
 
