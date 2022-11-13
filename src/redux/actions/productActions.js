@@ -11,6 +11,9 @@ import {
   PRODUCT_TOP__REQUEST,
   PRODUCT_TOP__SUCCESS,
   PRODUCT_TOP__FAIL,
+  PRODUCT_REDUCE_SUCCESS,
+  PRODUCT_REDUCE_REQUEST,
+  PRODUCT_REDUCE_FAIL,
 } from "../constants/productConstants";
 import axios from "axios";
 
@@ -105,6 +108,27 @@ export const listTopProducts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_TOP__FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const reduceProducts = (productId, qty) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_REDUCE_REQUEST });
+
+    const { data } = await axios.post(`/api/products/${productId}/${qty}`);
+
+    dispatch({
+      type: PRODUCT_REDUCE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_REDUCE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
