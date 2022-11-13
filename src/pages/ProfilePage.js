@@ -12,7 +12,7 @@ import {
 } from "../redux/actions/userActions";
 import { USER_UPDATE_PROFILE_RESET } from "../redux/constants/userConstants";
 
-const ProfilePage = ({}) => {
+const ProfilePage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,12 +40,12 @@ const ProfilePage = ({}) => {
         dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
       } else {
-        const user = userInformation.user;
+        const user = userInformation;
         setName(user.name);
         setEmail(user.email);
       }
     }
-  }, [userInfo, dispatch, userInformation, success]);
+  }, [userInfo, dispatch, navigate, userInformation, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -73,7 +73,7 @@ const ProfilePage = ({}) => {
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
           <Form
-            style={{ width: "50%", margin: "auto" }}
+            style={{ width: "50%", margin: "auto", paddingBottom: "6rem" }}
             onSubmit={submitHandler}
           >
             <Form.Group controlId="name">

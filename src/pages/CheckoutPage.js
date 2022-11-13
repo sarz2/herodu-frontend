@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import {
-  Col,
-  Row,
-  Form,
-  Button,
-  Card,
-  ListGroup,
-  Image,
-} from "react-bootstrap";
+import { Col, Row, Form, Button, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "./CheckoutPage.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,9 +17,6 @@ const CheckoutPage = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const productList = useSelector((state) => state.productList);
-  const { products } = productList;
-
   const submitHandler = () => {
     setPurchased(!purchased);
   };
@@ -36,13 +25,14 @@ const CheckoutPage = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
-  const findItemInProductList = () => {
+  const reduceQuantityofProducts = () => {
     cartItems.forEach((item) => {
       dispatch(reduceProducts(item.product, item.qty));
     });
   };
 
   const removeHandler = () => {
+    reduceQuantityofProducts();
     alert("They are on their way!");
     localStorage.removeItem("cartItems");
     navigate("/");
@@ -53,7 +43,7 @@ const CheckoutPage = () => {
       {!purchased ? (
         <Row style={{ paddingBottom: "12rem" }}>
           <Col>
-            <Link to="/cart" className="go-back-link">
+            <Link to="/cart" className="go-back-link btn">
               Go Back
             </Link>
             <h1>Pay with invoice</h1>
@@ -85,7 +75,7 @@ const CheckoutPage = () => {
         </Row>
       ) : (
         <>
-          <Link to="/cart" className="btn btn-light my-3">
+          <Link to="/cart" className="btn go-back-link">
             Go Back
           </Link>
           <h2>These products are on their way to you:</h2>

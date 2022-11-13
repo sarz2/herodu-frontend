@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button, Modal, Table, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { listOfUsers, deleteUser, signup } from "../redux/actions/userActions";
+import {
+  listOfUsers,
+  deleteUser,
+  signup,
+  getUserDetails,
+} from "../redux/actions/userActions";
 import { FcCheckmark } from "react-icons/fc";
 import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
@@ -40,7 +45,8 @@ const UserListPage = () => {
     } else {
       navigate("/login");
     }
-  }, [dispatch, userInfo, success, navigate]);
+    dispatch(getUserDetails(userInfo.user.id));
+  }, [dispatch, success, navigate, userInfo]);
 
   const deleteUserHandler = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -49,7 +55,6 @@ const UserListPage = () => {
   };
 
   const createNewUserHandler = (e) => {
-    e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Password do not match");
     } else {
@@ -81,7 +86,7 @@ const UserListPage = () => {
           {users && (
             <tbody>
               {users.map((user) => (
-                <tr key={users._id}>
+                <tr key={user._id}>
                   <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>

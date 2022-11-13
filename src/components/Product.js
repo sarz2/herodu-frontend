@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import "./Product.css";
 import Rating from "./Rating";
 
@@ -7,7 +7,7 @@ const Product = ({ product }) => {
   return (
     <div className="card bg-dark mb-5">
       <a
-        href={`product/${product._id}`}
+        href={`/product/${product._id}`}
         style={{ textDecoration: "none", color: "black" }}
       >
         {" "}
@@ -15,38 +15,39 @@ const Product = ({ product }) => {
           className="card-img-top rounded"
           width={"100%"}
           height="200"
-          src={product.image}
+          src={process.env.PUBLIC_URL + product.image}
           variant="top"
         />
       </a>
 
       <Card.Body className="card-body">
         {" "}
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+        <ListGroup variant="flush">
+          <ListGroup.Item>
             <a
               href={`product/${product._id}`}
               style={{ textDecoration: "none", color: "black" }}
+              className="bg-primary"
             >
               <Card.Title as="h5">
                 <strong>{product.name}</strong>
               </Card.Title>
             </a>
-          </li>
-          <li className="list-group-item">
+          </ListGroup.Item>
+          <ListGroup.Item>
             <Card.Text as="div">
               <Rating
                 value={product.rating}
                 text={`${product.numReviews} reviews`}
               />
             </Card.Text>
-          </li>
-          <li className="list-group-item">
+          </ListGroup.Item>
+          <ListGroup.Item>
             <Card.Text as="h3">
               <div>{product.price}kr</div>
             </Card.Text>
-          </li>
-        </ul>
+          </ListGroup.Item>
+        </ListGroup>
       </Card.Body>
     </div>
   );
