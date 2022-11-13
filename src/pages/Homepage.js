@@ -49,15 +49,14 @@ const HomePage = () => {
                 <Product product={product} />
               </Col>
             ))}
+            <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ""}
+            />
           </Row>
-          <Paginate
-            pages={pages}
-            page={page}
-            keyword={keyword ? keyword : ""}
-          />
         </>
       )}
-
       <Footer />
     </>
   );
